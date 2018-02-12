@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ex_randomNumber</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>	
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			rdNumber();
+		});
+		function rdNumber(){
+			var max = 999;
+			var min = -999;
+			var number1 = Math.floor(Math.random() * (max - min)) + min;
+			var number2 = Math.floor(Math.random() * (max - min)) + min;
+			$("#nb1").text(number1);
+			$("#nb2").text(number2);
+			$("#ans2").val(number1+number2)
+		}
+		function checkAns(){
+			var CheckAn = parseInt($("#ans1").val());
+			var Answer = parseInt($("#ans2").val());
+			if(CheckAn==Answer){
+				$("#output").text("That's correct.").css("color","green");
+			}
+			else{
+				$("#output").text("That's wrong.The answer is "+Answer+".").css("color","red");				
+			}
+		}
+	</script>
+	<center>
+		<h1>Ex - Random Number for Answer</h1>
+		<hr>
+		<button onclick="rdNumber()">Randdom Number</button>
+        <br><br>
+        <span id="nb1"></span> + <span id="nb2"></span> = <input type="number" id="ans1">
+		<input type="hidden" id="ans2">
+        <br><br>
+        <button onclick="checkAns()">Send Answer</button>
+        <br><br>
+        Result : <span id="output"></span>
+	</center>
+</body>
+</html>
